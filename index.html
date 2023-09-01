@@ -33,10 +33,10 @@
 <body class="p-0 m-0 grad-custom-1">
   <!-- SECTION -->
   <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2 py-3 grad-custom-2 shadow">
+    <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2 py-4 grad-custom-2 shadow">
       <a class="navbar-brand ps-3 animate__animated animate__bounceInRight" href="#">
         <i class="mdi mdi-cloud"></i>
-        <span class="ml-2 navtitle fs-3" id="motd">iNSPIRE</span>
+        <span class="ml-2 navtitle fs-1" id="motd">iNSPIRE</span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,12 +65,12 @@
         </h2>
         <h2 class="title text-white text-center" id="account-name"></h2>
         <!-- CLOCK -->
-        <div class="col-12 col-md-6 p-0 m-0">
-          <h3 class="text-white" id="clock">12:00 PM</h3>
+        <div class="col-12 col-md-4 p-0 m-0">
+          <h3 class="text-white d-flex flex-column text-center" id="clock"></h3>
         </div>
         <!-- WEATHER -->
-        <div class="col-12 col-md-6 p-0 m-0">
-          <h3 class="text-white" id="weather"><i class="mdi mdi-cloud"></i> 65F </h3>
+        <div class="col-12 col-md-4 p-0 m-0">
+          <h3 class="text-white d-flex flex-column text-center" id="weather" onclick="app.HomeController.toggleDeg()">
         </div>
         <!-- QUOTES -->
         <h4 class="my-quotes text-white text-center p-5 w-100 m-auto" id="quote-container"></h4>

@@ -15,6 +15,15 @@ class ObservableAppState extends EventEmitter {
   socketData = []
 
   time = []
+  day = []
+  fullDate = []
+
+  city = []
+  tempFaren = []
+  tempCel = []
+  faren = true
+  cel = false
+  conditions = []
 
   // Used to load initial data
   init() {
