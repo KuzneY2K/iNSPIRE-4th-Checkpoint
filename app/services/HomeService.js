@@ -29,6 +29,19 @@ class HomeService {
         quoteContainer.classList.add('animate__zoomInDown')
         console.log('account', AppState.account)
     }
+
+    drawTime() {
+        let date = new Date()
+        let min = String(date.getMinutes()).padStart(2, '0')
+        let hour = date.getHours()
+        if (hour >= 13) {
+            hour = hour - 12 + `:${min} PM`
+        } else {
+            hour = hour + `:${min} AM`
+        }
+        AppState.time = hour
+        console.log(AppState.time)
+    }
 }
 
 export const homeService = new HomeService()

@@ -22,7 +22,7 @@
 
 .title {
     font-family: 'DM Sans';
-    font-size: 4rem;
+    font-size: 5rem;
     text-shadow: 0px 0px 5px black;
     position: relative;
     top: 8rem;
@@ -32,12 +32,19 @@
     min-height: 100vh !important;
 }
 
+#filter {
+    min-height: 100vh;
+    position: absolute;
+    /* filter: blur(1.05rem);
+    background-color: rgba(0, 0, 0, 0.304); */
+}
+
 .my-quotes {
     font-family: 'Manrope';
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     text-shadow: 0px 0px 5px black;
     position: relative;
-    top: 10rem;
+    top: 20rem;
 }
 
 .quote-author {
@@ -48,5 +55,44 @@
 .my-quotes:hover {
     .quote-author {
         opacity: 100%;
+    }
+}
+
+#clock {
+    font-family: 'DM Sans';
+    font-size: 4rem;
+    position: absolute;
+    left: 15rem;
+    top: 22rem;
+    text-shadow: 0px 0px 8px black;
+    visibility: hidden;
+}
+
+#weather {
+    font-family: 'DM Sans';
+    font-size: 4rem;
+    position: absolute;
+    right: 15rem;
+    top: 22rem;
+    text-shadow: 0px 0px 8px black;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3.75rem;
+    }
+
+    .my-quotes {
+        font-size: 1.75rem;
+    }
+
+    #clock {
+        left: 4rem;
+        font-size: 3rem;
+    }
+
+    #weather {
+        right: 4rem;
+        font-size: 3rem;
     }
 }
