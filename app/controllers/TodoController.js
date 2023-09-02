@@ -29,6 +29,17 @@ export class TodoController {
                 alert('Deleted')
             }
         } catch (error) {
+            alert('ERROR')
+            console.log(error);
+        }
+    }
+
+    async editTodo(todoId) {
+        try {
+            todoService.editTodo(todoId)
+            this.checkIncompleted()
+        } catch (error) {
+            alert('ERROR')
             console.log(error);
         }
     }
@@ -38,5 +49,22 @@ export class TodoController {
         let todoContainer = document.getElementById('todo-container')
         AppState.todoList.forEach(todo => template += todo.TodoTemplate)
         todoContainer.innerHTML = template
+        AppState.todoList.forEach(todo => {
+            let thisCheckbox = document.getElementById(`${todo.id}CheckBox`)
+            if (todo.completed == true) {
+                thisCheckbox.checked = true
+                console.log(todo)
+            } else if (todo.completed == false) {
+                thisCheckbox.checked = false
+                console.log(todo)
+            }
+        })
+        this.checkIncompleted()
+    }
+
+    checkIncompleted() {
+        let count = document.getElementById('incomplete-count')
+        let filteredTodo = AppState.todoList.filter(todo => todo.completed != true)
+        count.innerHTML = filteredTodo.length
     }
 }

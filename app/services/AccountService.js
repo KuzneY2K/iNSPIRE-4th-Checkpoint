@@ -9,6 +9,7 @@ class AccountService {
 
       const res = await api.get('/account')
       AppState.account = new Account(res.data)
+      console.log(res.data)
     } catch (err) {
       logger.error(err)
     }

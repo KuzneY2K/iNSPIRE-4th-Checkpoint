@@ -21,7 +21,7 @@ export let HomeView = /*html*/`
           </ul>
         </div>
       </div>
-              <h5 class="offcanvas-title mb-3 ms-3">Uncompleted Tasks: </h5>
+              <h5 class="offcanvas-title mb-3 ms-3">Incomplete Tasks: <span id="incomplete-count"></span></h5>
     </div>
       
       <section class="row p-0 m-0 position-relative" id="main-container">

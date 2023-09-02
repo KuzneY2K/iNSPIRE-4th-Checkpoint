@@ -19,17 +19,47 @@ class TodoService {
             AppState.emit('todoList')
             this.saveTodo()
         } catch (error) {
+            alert('ERROR')
             console.log(error);
         }
     }
 
     async deleteTodo(todoId) {
         try {
+            let res = api.delete(`api/todos/${todoId}`)
+            console.log(res)
             let filteredTodo = AppState.todoList.filter(todo => todo.id != todoId)
             AppState.todoList = filteredTodo
             this.saveTodo()
         } catch (error) {
+            alert('ERROR')
             console.log(error);
+        }
+    }
+
+    async editTodo(todoId) {
+        try {
+            let foundTodo = AppState.todoList.find(todo => todo.id == todoId)
+            let thisCheckbox = document.getElementById(`${todoId}CheckBox`)
+            // thisCheckbox.checked = true
+            // foundTodo.completed = true
+            // console.log(foundTodo)
+            if (foundTodo.completed == false) {
+                thisCheckbox.checked = true
+                foundTodo.completed = true
+                this.saveTodo()
+                console.log(foundTodo)
+            } else if (foundTodo.completed == true) {
+                thisCheckbox.checked = false
+                foundTodo.completed = false
+                this.saveTodo()
+                console.log(foundTodo)
+            }
+            let res = await api.put(`/api/todos/${todoId}`, foundTodo)
+            console.log(res)
+        } catch (error) {
+            alert('ERROR')
+            console.log(error)
         }
     }
 
