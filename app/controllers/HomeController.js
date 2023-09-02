@@ -3,6 +3,7 @@ import { Pop } from "../utils/Pop.js"
 import { AuthService } from "../services/AuthService.js"
 import { AuthController } from "./AuthController.js"
 import { homeService } from "../services/HomeService.js"
+import { loadState, saveState } from "../utils/Store.js"
 
 export class HomeController {
   constructor() {
@@ -15,6 +16,8 @@ export class HomeController {
   async drawUi() {
     try {
       await homeService.drawUi()
+      let offCanvasBtn = document.getElementById('oc-btn')
+      offCanvasBtn.classList.add('shown')
     } catch (error) {
       console.log(error)
       alert('ERROR', error)
@@ -30,17 +33,11 @@ export class HomeController {
       clock.style.visibility = "visible"
       clock.classList.add('animate__animated')
       clock.classList.add('animate__fadeInBottomLeft')
-    }, 500)
+    }, 1000)
   }
 
   toggleDeg() {
-    if (AppState.faren == true) {
-      AppState.cel = true
-      AppState.faren = false
-    } else if (AppState.cel == true) {
-      AppState.faren = true
-      AppState.cel = false
-    }
+    homeService.toggleDeg()
   }
 
   async drawWeather() {
@@ -48,9 +45,9 @@ export class HomeController {
       setInterval(() => {
         homeService.drawWeather()
         let weather = document.getElementById('weather')
-        if (AppState.faren == true) {
+        if (localStorage.getItem('faren') === 'true') {
           weather.innerHTML = `${AppState.tempFaren}° F<br>${AppState.city}<br>${AppState.conditions}`
-        } else if (AppState.cel == true) {
+        } else if (localStorage.getItem('cel') === 'true') {
           weather.innerHTML = `${AppState.tempCel}° C<br>${AppState.city}<br>${AppState.conditions}`
         }
         weather.style.visibility = "visible"

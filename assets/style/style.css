@@ -79,6 +79,27 @@
     visibility: hidden;
 }
 
+.oc-btn {
+    top: 2rem;
+    left: 2rem;
+    width: 10rem !important;
+    font-family: 'Manrope' !important;
+}
+
+#oc-btn {
+    visibility: hidden;
+}
+
+#oc-btn.shown {
+    visibility: visible;
+}
+
+.checkbox {
+    scale: 1.5;
+    margin-right: 1rem;
+    margin-top: 0.7rem !important;
+}
+
 @media (max-width: 768px) {
     .title {
         font-size: 3.75rem;

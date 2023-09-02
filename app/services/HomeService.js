@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js"
+import { saveState } from "../utils/Store.js";
 import { api } from "./AxiosService.js"
 
 class HomeService {
@@ -13,6 +14,8 @@ class HomeService {
         let nameContainer = document.getElementById('account-name')
         let welcomeMessage = document.getElementById('welcome-message')
         let quoteContainer = document.getElementById('quote-container')
+        let offCanvasTitle = document.getElementById('offCanvasLabel')
+        let offCanvasToggle = document.getElementById('offcanvas')
         imgContainer.style.backgroundImage = `url(${resImg.data.url})`
         imgContainer.style.backgroundSize = 'cover'
         imgContainer.style.backgroundRepeat = 'no-repeat'
@@ -26,6 +29,7 @@ class HomeService {
         quoteContainer.classList.add('animate__animated')
         quoteContainer.classList.add('animate__zoomInDown')
         console.log('account', AppState.account)
+        offCanvasTitle.innerHTML = `${AppState.account.name}'s TODO List`
     }
 
     drawTime() {
@@ -52,10 +56,20 @@ class HomeService {
     async drawWeather() {
         let resWeather = await api.get('api/weather')
         AppState.city = resWeather.data.name.toUpperCase()
-        // console.log(resWeather.data.weather[0].main)
+        // console.log(resWeather.data.weather)
         AppState.tempFaren = Math.floor(((resWeather.data.main.temp - 273) * 1.8) + 32)
         AppState.tempCel = Math.floor(resWeather.data.main.temp - 273.15)
         AppState.conditions = resWeather.data.weather[0].main.toUpperCase()
+    }
+
+    toggleDeg() {
+        if (localStorage.getItem('faren') === 'true') {
+            localStorage.setItem('cel', 'true')
+            localStorage.setItem('faren', 'false')
+        } else if (localStorage.getItem('cel') === 'true') {
+            localStorage.setItem('faren', 'true')
+            localStorage.setItem('cel', 'false')
+        }
     }
 }
 

@@ -1,4 +1,5 @@
 import { Account } from './models/Account.js'
+import { Todo } from './models/Todo.js'
 import { Value } from './models/Value.js'
 import { EventEmitter } from './utils/EventEmitter.js'
 import { isValidProp } from './utils/IsValidProp.js'
@@ -7,6 +8,7 @@ import { loadState } from './utils/Store.js'
 class ObservableAppState extends EventEmitter {
   page = ''
   user = null
+  accountId = ''
   /** @type {import('./models/Account.js').Account | null} */
   // @ts-ignore
   account = null
@@ -21,9 +23,11 @@ class ObservableAppState extends EventEmitter {
   city = []
   tempFaren = []
   tempCel = []
-  faren = true
-  cel = false
+  faren = localStorage.getItem('faren')
+  cel = localStorage.getItem('cel')
   conditions = []
+
+  todoList = loadState('todoList', [Todo])
 
   // Used to load initial data
   init() {
