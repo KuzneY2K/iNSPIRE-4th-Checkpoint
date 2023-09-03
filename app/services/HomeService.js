@@ -15,14 +15,23 @@ class HomeService {
         let welcomeMessage = document.getElementById('welcome-message')
         let quoteContainer = document.getElementById('quote-container')
         let offCanvasTitle = document.getElementById('offCanvasLabel')
-        let offCanvasToggle = document.getElementById('offcanvas')
+        // let offCanvasToggle = document.getElementById('offcanvas')
         imgContainer.style.backgroundImage = `url(${resImg.data.url})`
         imgContainer.style.backgroundSize = 'cover'
         imgContainer.style.backgroundRepeat = 'no-repeat'
         imgContainer.classList.add('animate__animated')
         imgContainer.classList.add('animate__fadeIn')
         welcomeMessage.remove()
-        nameContainer.innerHTML = `Welcome Back <br>${AppState.account.name}`
+        // nameContainer.innerHTML = `Welcome Back <br>${AppState.account.name}`
+        let date = new Date()
+        let tfHour = date.getHours()
+        if (tfHour <= 11) {
+            nameContainer.innerHTML = `Good Morning <br>${AppState.account.name}`
+        } else if (tfHour <= 16) {
+            nameContainer.innerHTML = `Good Afternoon <br>${AppState.account.name}`
+        } else if (tfHour <= 23) {
+            nameContainer.innerHTML = `Good Evening <br>${AppState.account.name}`
+        }
         nameContainer.classList.add('animate__animated')
         nameContainer.classList.add('animate__fadeInDownBig')
         quoteContainer.innerHTML = `"${resQuote.data.content}" <span class="quote-author"><br>-${resQuote.data.author}</span>`
@@ -38,6 +47,7 @@ class HomeService {
         let today = date.getDay()
         let min = String(date.getMinutes()).padStart(2, '0')
         let hour = date.getHours()
+        let tfHour = date.getHours()
         let todayDate = date.getDate()
         let month = date.getMonth() + 1
         let year = date.getFullYear()
@@ -49,6 +59,7 @@ class HomeService {
             hour = hour + `:${min} AM`
         }
         AppState.time = hour
+        AppState.tfTime = tfHour
         AppState.day = weekDay[today]
         console.log(AppState.time)
     }

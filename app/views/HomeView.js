@@ -2,20 +2,20 @@ import { AppState } from "../AppState.js";
 
 export let HomeView = /*html*/`
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offCanvas" aria-labelledby="offCanvasLabel">
+    <div class="offcanvas offcanvas-start grad-custom-1" tabindex="-1" id="offCanvas" aria-labelledby="offCanvasLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offCanvasLabel"></h5>
+        <h5 class="offcanvas-title fs-4" id="offCanvasLabel"></h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <div>
+        <h5 class="offcanvas-subtitle">
           Here you will see your active TODO list. You can check each item to mark it as done or you can create/delete new TODO's. Happy producting.
-        </div>
-              <form class="p-1 m-0 d-flex flex-column align-content-center mt-3" onsubmit="app.TodoController.createTodo()">
+        </h5>
+              <form class="p-1 m-0 d-flex flex-column align-content-center mt-4" onsubmit="app.TodoController.createTodo()">
         <input type="text" class="form-control" id="todoDesc" name="description" placeholder="What do you need to do?" maxLength="15">
-        <button class="btn btn-success" type="submit">Create</button>
+        <button class="btn btn-success" type="submit">Add To List</button>
       </form>
-        <div class="dropdown mt-3">
+        <div class="dropdown mt-3 ms-3">
           <ul class="mt-5 p-0 m-0 list-unstyled" id="todo-container">
             <li><input class="form-check-input checkbox" type="checkbox" id="myCheckBox" checked><span class="badge grad-custom-2 fs-4">I need to go clean</span><a><i class="mdi mdi-trash-can text-danger fs-3"></i></a></li>
           </ul>
@@ -26,7 +26,7 @@ export let HomeView = /*html*/`
       
       <section class="row p-0 m-0 position-relative" id="main-container">
       <section class="p-0 m-0 text-secondary pattern-zigzag-xl opacity-25" id="filter">.</section>
-                <button class="btn grad-custom-2 shadow py-3 px-4 position-absolute oc-btn rounded rounded-pill" type="button" data-bs-toggle="offcanvas"
+                <button class="btn grad-custom-3 shadow py-3 px-4 position-absolute oc-btn rounded rounded-pill" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#offCanvas" aria-controls="offCanvas" id="oc-btn">
             CHECK TODO
           </button>

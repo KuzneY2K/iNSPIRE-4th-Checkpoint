@@ -8,8 +8,8 @@ import { loadState, saveState } from "../utils/Store.js"
 export class HomeController {
   constructor() {
     console.log('This is the Home Controller',)
-    AppState.on("account", this.drawUi)
     AppState.on("account", this.drawTime)
+    AppState.on("account", this.drawUi)
     AppState.on('account', this.drawWeather)
   }
 

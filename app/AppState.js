@@ -17,6 +17,7 @@ class ObservableAppState extends EventEmitter {
   socketData = []
 
   time = []
+  tfTime = []
   day = []
   fullDate = []
 
