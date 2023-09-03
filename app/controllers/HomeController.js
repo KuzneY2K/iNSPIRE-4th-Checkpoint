@@ -28,7 +28,7 @@ export class HomeController {
       if (localStorage.getItem('timePref') === 'false') {
         clock.innerHTML = `${AppState.time}<br>${AppState.day}<br>${AppState.fullDate}`
       } else if (localStorage.getItem('timePref') === 'true') {
-        clock.innerHTML = `${AppState.tfTime}<br>${AppState.day}<br>${AppState.fullDate}`
+        clock.innerHTML = `${AppState.tfTime} HRS<br>${AppState.day}<br>${AppState.fullDate}`
       }
       clock.style.visibility = "visible"
       clock.classList.add('animate__animated')
