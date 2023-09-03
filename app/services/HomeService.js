@@ -37,7 +37,7 @@ class HomeService {
         quoteContainer.innerHTML = `"${resQuote.data.content}" <span class="quote-author"><br>-${resQuote.data.author}</span>`
         quoteContainer.classList.add('animate__animated')
         quoteContainer.classList.add('animate__zoomInDown')
-        console.log('account', AppState.account)
+        // console.log('account', AppState.account)
         offCanvasTitle.innerHTML = `${AppState.account.name}'s TODO List`
     }
 
@@ -59,9 +59,9 @@ class HomeService {
             hour = hour + `:${min} AM`
         }
         AppState.time = hour
-        AppState.tfTime = tfHour
+        AppState.tfTime = `${tfHour}${min}`
         AppState.day = weekDay[today]
-        console.log(AppState.time)
+        // AppState.timePref = localStorage.getItem('timePref')
     }
 
     async drawWeather() {
@@ -81,6 +81,15 @@ class HomeService {
             localStorage.setItem('faren', 'true')
             localStorage.setItem('cel', 'false')
         }
+    }
+
+    toggleTime() {
+        if (localStorage.getItem('timePref') === 'false') {
+            localStorage.setItem('timePref', 'true')
+        } else if (localStorage.getItem('timePref') === 'true') {
+            localStorage.setItem('timePref', 'false')
+        }
+        console.log(localStorage.getItem('timePref'))
     }
 }
 

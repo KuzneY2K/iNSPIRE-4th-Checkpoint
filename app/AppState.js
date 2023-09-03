@@ -28,6 +28,8 @@ class ObservableAppState extends EventEmitter {
   cel = localStorage.getItem('cel')
   conditions = []
 
+  timePref = localStorage.getItem('timePref')
+
   todoList = loadState('todoList', [Todo])
 
   // Used to load initial data

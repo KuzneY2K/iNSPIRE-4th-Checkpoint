@@ -1,10 +1,5 @@
 import { AppState } from "../AppState.js"
-import { Pop } from "../utils/Pop.js"
-import { AuthService } from "../services/AuthService.js"
-import { AuthController } from "./AuthController.js"
 import { homeService } from "../services/HomeService.js"
-import { loadState, saveState } from "../utils/Store.js"
-import { getFormData } from "../utils/FormHandler.js"
 
 export class HomeController {
   constructor() {
@@ -30,15 +25,23 @@ export class HomeController {
     setInterval(() => {
       homeService.drawTime()
       let clock = document.getElementById('clock')
-      clock.innerHTML = `${AppState.time}<br>${AppState.day}<br>${AppState.fullDate}`
+      if (localStorage.getItem('timePref') === 'false') {
+        clock.innerHTML = `${AppState.time}<br>${AppState.day}<br>${AppState.fullDate}`
+      } else if (localStorage.getItem('timePref') === 'true') {
+        clock.innerHTML = `${AppState.tfTime}<br>${AppState.day}<br>${AppState.fullDate}`
+      }
       clock.style.visibility = "visible"
       clock.classList.add('animate__animated')
       clock.classList.add('animate__fadeInBottomLeft')
-    }, 1000)
+    }, 500)
   }
 
   toggleDeg() {
     homeService.toggleDeg()
+  }
+
+  toggleTime() {
+    homeService.toggleTime()
   }
 
   async drawWeather() {

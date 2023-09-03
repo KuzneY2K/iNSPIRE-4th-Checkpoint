@@ -38,14 +38,14 @@ export let HomeView = /*html*/`
         <h2 class="title text-white text-center" id="account-name"></h2>
         <!-- CLOCK -->
         <div class="col-12 col-md-4 p-0 m-0">
-          <h3 class="text-white d-flex flex-column text-center" id="clock"></h3>
+          <h3 class="text-white d-flex flex-column text-center" id="clock" onclick="app.HomeController.toggleTime()"></h3>
         </div>
         <!-- WEATHER -->
         <div class="col-12 col-md-4 p-0 m-0">
           <h3 class="text-white d-flex flex-column text-center" id="weather" onclick="app.HomeController.toggleDeg()">
         </div>
         <!-- QUOTES -->
-        <h4 class="my-quotes text-white text-center px-5 py-2 w-100 m-auto" id="quote-container"></h4>
+        <h4 class="my-quotes text-white text-center px-5 py-2 w-100 m-auto mt-4" id="quote-container"></h4>
       </div>
       <!-- FILLER -->
       <section class="row p-0 m-0 utilities">
