@@ -116,16 +116,16 @@
     }
 
     .my-quotes {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 
     #clock {
         left: 4rem;
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     #weather {
         right: 4rem;
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }

@@ -4,6 +4,7 @@ import { AuthService } from "../services/AuthService.js"
 import { AuthController } from "./AuthController.js"
 import { homeService } from "../services/HomeService.js"
 import { loadState, saveState } from "../utils/Store.js"
+import { getFormData } from "../utils/FormHandler.js"
 
 export class HomeController {
   constructor() {
