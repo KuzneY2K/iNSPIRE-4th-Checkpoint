@@ -4,7 +4,9 @@ import { homeService } from "../services/HomeService.js"
 export class HomeController {
   constructor() {
     localStorage.setItem('cel', 'true')
-    // localStorage.setItem('timePref', 'false')
+    if (localStorage.getItem('timePref' == null || '')) {
+      localStorage.setItem('timePref', 'false')
+    }
     console.log('This is the Home Controller',)
     AppState.on("account", this.drawTime)
     AppState.on("account", this.drawUi)
