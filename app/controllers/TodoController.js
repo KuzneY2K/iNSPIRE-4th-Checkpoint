@@ -25,8 +25,6 @@ export class TodoController {
             if (confirm("Click OK to delete.") == true) {
                 await todoService.deleteTodo(todoId)
                 this.drawTodo()
-            } else {
-                alert('Deleted')
             }
         } catch (error) {
             alert('ERROR')
