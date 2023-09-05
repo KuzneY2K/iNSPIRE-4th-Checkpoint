@@ -34,7 +34,7 @@
 }
 
 #main-container {
-    min-height: 100vh !important;
+    min-height: 120vh !important;
 }
 
 #filter {
@@ -110,7 +110,7 @@
     font-family: 'Manrope'
 }
 
-@media (max-width: 768px) {
+@media (max-width: 920px) {
     .title {
         font-size: 3.75rem;
     }
